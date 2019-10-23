@@ -18,7 +18,8 @@ Depends: R (>= 3.5.0),
 	dplyr,
 	colorspace,
 	optparse,
-	scales	
+	scales,
+	readr	
 Imports: genefilter (>= 1.44.0),
 	ggrepel,
 	ggdendro,
