@@ -1,16 +1,10 @@
 #!/usr/bin/env Rscript
 ################################################################################
-### R script to compare several conditions with the SARTools and edgeR packages
-### Hugo Varet
-### May 16th, 2018
-### designed to be executed with SARTools 1.6.7
-### run "Rscript template_script_edgeR_CL.r --help" to get some help
+### R script to check sanity of target file
+### Adapted from SARTools 1.6.7
 ################################################################################
-library(optparse) 
-
-
+suppressMessages(library(optparse))
 rm(list=ls())                                     
-
 # options list with associated default value.
 option_list <- list( 
 
