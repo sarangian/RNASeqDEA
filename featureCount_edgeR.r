@@ -87,12 +87,7 @@ make_option(c("-m", "--cpmCutoff"),
 			default=1,
 			dest="cpmCutoff", 
 			help="counts-per-million cut-off to filter low counts"),
-			
-make_option(c("-g", "--gene.selection"),
-			default="pairwise",
-			dest="gene.selection", 
-			help="selection of the features in MDSPlot [default: %default]"),
-			
+		
 make_option(c("-n", "--normalizationMethod"),
 			default="TMM",
 			dest="normalizationMethod", 
@@ -141,12 +136,11 @@ fitType <- opt$fitType                               # mean-variance relationshi
 alpha <- as.numeric(opt$alpha)                       # threshold of statistical significance
 pAdjustMethod <- opt$pAdjustMethod                   # p-value adjustment method: "BH" (default) or "BY"
 locfunc <- opt$locfunc  
-gene.selection <- opt$gene.selection                 # selection of the features in MDSPlot
 normalizationMethod <- opt$normalizationMethod       # normalization method in calcNormFactors
 cpmCutoff <- opt$cpmCutoff                             # "median" (default) or "shorth" to estimate the size factors
 				
 
- print(paste("workDir", workDir))
+ #print(paste("workDir", workDir))
  print(paste("projectName", projectName))
  print(paste("reportName", reportName))
  print(paste("targetFile", targetFile))
