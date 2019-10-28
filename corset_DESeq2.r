@@ -8,10 +8,11 @@
 ################################################################################
 
 rm(list=ls())                                        # remove all the objects from the R session
-library(optparse) 
-library(readr)  
-library("pheatmap")
-library("RColorBrewer")                                 # to run the script in command lines
+suppressMessages(library(rnaseqdea))
+#library(optparse) 
+#library(readr)  
+#library("pheatmap")
+#library("RColorBrewer")                                 # to run the script in command lines
 
 # options list with associated default value.
 option_list <- list( 
@@ -147,13 +148,13 @@ locfunc <- opt$locfunc                               # "median" (default) or "sh
 #dir.create(imageFolder, showWarnings = FALSE, recursive = TRUE)
 dir.create("tables", showWarnings = FALSE, recursive = TRUE)
 
-library(regionReport)
-library(DESeq2)
-library(dplyr)
+#library(regionReport)
+#library(DESeq2)
+#library(dplyr)
 
-source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
-source("/opt/RNASeqPIPE/tools/utility/run.DESeq2_corset.r")
-source("/opt/RNASeqPIPE/tools/utility/exportResults.DESeq2.R")
+#source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
+#source("/opt/RNASeqPIPE/tools/utility/run.DESeq2_corset.r")
+#source("/opt/RNASeqPIPE/tools/utility/exportResults.DESeq2.R")
 
 #plots
 					   
@@ -182,12 +183,9 @@ target <- loadTargetFile(targetFile=targetFile, varInt=varInt, condRef=condRef, 
 #write.table(subCount,opt$out, row.names = F, col.names = T, quote = F, sep = '\t')
 #countfile <- as.matrix(read.table(coresetQuant, header=TRUE, sep="\t", na.strings="")
 countData <- read.delim(coresetQuant,row.names=1)
-
-
-head (countData)
+#head (countData)
 
 all(rownames(target) %in% colnames(countData))
-
 countData <- countData[, rownames(target)]
 all(rownames(target) == colnames(countData))
 
@@ -219,9 +217,6 @@ exportResults.DESeq2(out.DESeq2, group=unique(target[,varInt]), alpha=alpha)
 ########################################################################
 save.image(file=paste0(reportName, ".RData"))
 ########################################################################
-
-
-
 
 report <- DESeq2Report(dds, projectName, intgroup, outdir = reportName,  output = 'index', nBest = 50000, nBestFeatures = 20, template = templateFile)
 
