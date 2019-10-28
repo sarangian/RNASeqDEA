@@ -1,10 +1,8 @@
 #!/usr/bin/env Rscript
 ################################################################################
-### R script to compare several conditions with the SARTools and DESeq2 packages
-### Hugo Varet
-### March 20th, 2018
-### designed to be executed with SARTools 1.6.7
-### run "Rscript template_script_DESeq2_CL.r --help" to get some help
+### R script to compare two different conditions with count files (generated using featureCounts) and DESeq2 packages
+### Aditya Narayan Sarangi
+### Designed to be executed with bulkRNASeqPIPE
 ################################################################################
 
 rm(list=ls())                                        # remove all the objects from the R session
