@@ -1,10 +1,8 @@
 #!/usr/bin/env Rscript
 ################################################################################
-### R script to compare several conditions with the SARTools and edgeR packages
-### Hugo Varet
-### May 16th, 2018
-### designed to be executed with SARTools 1.6.7
-### run "Rscript template_script_edgeR_CL.r --help" to get some help
+### R script to compare two different conditions with kallisto and edgeR packages
+### Aditya Narayan Sarangi
+### Designed to be executed with bulkRNASeqPIPE
 ################################################################################
 library(optparse) 
 library(readr)  
