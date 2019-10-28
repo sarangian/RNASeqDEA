@@ -8,10 +8,11 @@
 ################################################################################
 
 rm(list=ls())                                        # remove all the objects from the R session
-library(optparse) 
-library(readr)  
-library("pheatmap")
-library("RColorBrewer")
+suppressMessages(library(rnaseqdea))
+#library(optparse) 
+#library(readr)  
+#library("pheatmap")
+#library("RColorBrewer")
                                  # to run the script in command lines
 
 # options list with associated default value.
@@ -149,13 +150,13 @@ locfunc <- opt$locfunc                               # "median" (default) or "sh
 #dir.create(tableFolder, showWarnings = FALSE, recursive = TRUE)
 dir.create("tables", showWarnings = FALSE, recursive = TRUE)
 
-library(EnhancedVolcano)
-library(regionReport)
-library(DESeq2)
-library(dplyr)
-source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
-source("/opt/RNASeqPIPE/tools/utility/run.DESeq2_corset.r")
-source ("/opt/RNASeqPIPE/tools/utility/exportResults.DESeq2.R")
+#library(EnhancedVolcano)
+#library(regionReport)
+#library(DESeq2)
+#library(dplyr)
+#source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
+#source("/opt/RNASeqPIPE/tools/utility/run.DESeq2_corset.r")
+#source ("/opt/RNASeqPIPE/tools/utility/exportResults.DESeq2.R")
 
 #plots
 					   
