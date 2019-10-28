@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 ################################################################################
-### R script to compare two different conditions with kallisto and edgeR packages
+### R script to compare two different conditions with kallisto and DESeq2 packages
 ### Aditya Narayan Sarangi
 ### Designed to be executed with bulkRNASeqPIPE
 ################################################################################
