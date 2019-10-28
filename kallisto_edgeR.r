@@ -4,18 +4,19 @@
 ### Aditya Narayan Sarangi
 ### Designed to be executed with bulkRNASeqPIPE
 ################################################################################
-library(optparse) 
-library(readr)  
-library("pheatmap")
-library("RColorBrewer")
-library(regionReport)
-library(tximport)
-library(dplyr)
-library('edgeR')
-library(DESeq2)
-library(DEFormats)
+suppressMessages(library(rnaseqdea))
+#library(optparse) 
+#library(readr)  
+#library("pheatmap")
+#library("RColorBrewer")
+#library(regionReport)
+#library(tximport)
+#library(dplyr)
+#library('edgeR')
+#library(DESeq2)
+#library(DEFormats)
 
-rm(list=ls())                                      # remove all the objects from the R session
+rm(list=ls())                      # remove all the objects from the R session
                                    # to run the script in command lines
 
 # options list with associated default value.
@@ -77,12 +78,7 @@ make_option(c("-m", "--cpmCutoff"),
 			default=1,
 			dest="cpmCutoff", 
 			help="counts-per-million cut-off to filter low counts"),
-			
-make_option(c("-g", "--gene.selection"),
-			default="pairwise",
-			dest="gene.selection", 
-			help="selection of the features in MDSPlot [default: %default]"),
-			
+				
 make_option(c("-n", "--normalizationMethod"),
 			default="TMM",
 			dest="normalizationMethod", 
@@ -109,25 +105,18 @@ condRef <- opt$condRef                               # reference biological cond
 batch <- opt$batch                                   # blocking factor: NULL (default) or "batch" for example
 alpha <- as.numeric(opt$alpha)                       # threshold of statistical significance
 pAdjustMethod <- opt$pAdjustMethod                   # p-value adjustment method: "BH" (default) or "BY"
-gene.selection <- opt$gene.selection                 # selection of the features in MDSPlot
 normalizationMethod <- opt$normalizationMethod       # normalization method in calcNormFactors
 cpmCutoff <- opt$cpmCutoff                           # counts-per-million cut-off to filter low counts
 
-# print(paste("workDir", workDir))
- print(paste("projectName", projectName))
-# print(paste("author", author))
- print(paste("targetFile", targetFile))
-# print(paste("rawDir", rawDir))
-# print(paste("varInt", varInt))
-# print(paste("condRef", condRef))
-# print(paste("batch", batch))
-# print(paste("alpha", alpha))
-# print(paste("pAdjustMethod", pAdjustMethod))
-# print(paste("featuresToRemove", featuresToRemove))
-# print(paste("colors", colors))
-# print(paste("gene.selection", gene.selection))
-# print(paste("normalizationMethod", normalizationMethod))
- print(paste("templateFile", templateFile))
+print(paste("projectName", projectName))
+print(paste("targetFile", targetFile))
+print(paste("varInt", varInt))
+print(paste("condRef", condRef))
+print(paste("batch", batch))
+print(paste("alpha", alpha))
+print(paste("pAdjustMethod", pAdjustMethod))
+print(paste("normalizationMethod", normalizationMethod))
+print(paste("templateFile", templateFile))
 
 ################################################################################
 ###                             running script                               ###
@@ -153,15 +142,14 @@ if ( is.null(opt$condRef) ) {
 # setwd(workDir)
 
 
-source ("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
-source ("/opt/RNASeqPIPE/tools/utility/run.edgeR_trans.r")
-source ("/opt/RNASeqPIPE/tools/utility/exportResults.edgeR.R")
-source ("/opt/RNASeqPIPE/tools/utility/summarizeResults.edgeR.r")
-source ("/opt/RNASeqPIPE/tools/utility/nDiffTotal.r")
+#source ("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
+#source ("/opt/RNASeqPIPE/tools/utility/run.edgeR_trans.r")
+#source ("/opt/RNASeqPIPE/tools/utility/exportResults.edgeR.R")
+#source ("/opt/RNASeqPIPE/tools/utility/summarizeResults.edgeR.r")
+#source ("/opt/RNASeqPIPE/tools/utility/nDiffTotal.r")
 #plots
 
 dir.create("tables", showWarnings = FALSE, recursive = TRUE)
-
 				   
 # loading target file
 target <- loadTargetFile(targetFile=targetFile, varInt=varInt, condRef=condRef, batch=batch)
@@ -218,11 +206,9 @@ out.edgeR <- run.edgeR_trans(counts=countdata, target=target, varInt=varInt, con
                        pAdjustMethod=pAdjustMethod)
 
 
-
 dge <- out.edgeR$dge
 res <- out.edgeR$results
 lrt <- out.edgeR$lrt
-
 
 dds = as.DESeqDataSet(dge)
 #res <- results(dds)
@@ -230,14 +216,11 @@ dds = as.DESeqDataSet(dge)
 coldata <- colData(dds)
 
 samples <- as.factor(row.names(coldata))
-samples
-
 
 colData(dds) <- cbind(colData(dds), samples)
 
 coldata <- colData(dds)
 intgroup <- colnames(coldata[c(1)])
-intgroup
 
 exportResults.edgeR(out.edgeR, group=group, counts=countdata, alpha=alpha, export=TRUE)
 
