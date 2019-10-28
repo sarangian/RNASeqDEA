@@ -19,23 +19,8 @@ Depends: R (>= 3.5.0),
 	colorspace,
 	optparse,
 	scales,
-	readr	
-Imports: genefilter (>= 1.44.0),
-	ggrepel,
-	ggdendro,
-	graphics,
-	grDevices,
-	grid,
-	gridExtra,
-	knitr,
-	limma,
-	rlang,
-	rmarkdown (>= 1.4),
-	S4Vectors,
-	scales,
-	stats,
-	SummarizedExperiment,
-	utils
+	readr,
+	rhdf5
 Suggests: optparse
 biocViews: Software
 VignetteBuilder: knitr, rmarkdown
