@@ -8,14 +8,15 @@
 ################################################################################
 
 rm(list=ls())                                        # remove all the objects from the R session
-library(optparse) 
-library(readr)  
-library("pheatmap")
-library("RColorBrewer")  
-library(regionReport)
-library(DESeq2)
-library(dplyr)
-library(DEFormats)
+suppressMessages(library(rnaseqdea))
+#library(optparse) 
+#library(readr)  
+#library("pheatmap")
+#library("RColorBrewer")  
+#library(regionReport)
+#library(DESeq2)
+#library(dplyr)
+#library(DEFormats)
                                # to run the script in command lines
 
 # options list with associated default value.
@@ -170,9 +171,9 @@ dir.create("tables", showWarnings = FALSE, recursive = TRUE)
 
 
 
-source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
-source ("/opt/RNASeqPIPE/tools/utility/run.edgeR.r")
-source ("/opt/RNASeqPIPE/tools/utility/exportResults.edgeR.R")
+#source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
+#source ("/opt/RNASeqPIPE/tools/utility/run.edgeR.r")
+#source ("/opt/RNASeqPIPE/tools/utility/exportResults.edgeR.R")
 #plots
 					   
 # loading target file
