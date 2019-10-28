@@ -1,13 +1,10 @@
 #!/usr/bin/env Rscript
 ################################################################################
-### R script to compare several conditions with the SARTools and edgeR packages
-### Hugo Varet
-### May 16th, 2018
-### designed to be executed with SARTools 1.6.7
-### run "Rscript template_script_edgeR_CL.r --help" to get some help
+### R script to create project based on sample_name and condition information available in target file
+### Aditya N Sarangi
+### designed to be executed with bulkRNASeqPIPE
 ################################################################################
-library(optparse) 
-
+suppressMessages(library(optparse))
 
 rm(list=ls())                                     
 
@@ -98,12 +95,7 @@ checkTargetFile <- function(targetFile, varInt, condRef, batch){
   return(target)
 }
 
-
-
 target <- checkTargetFile(targetFile=targetFile, varInt=varInt, condRef=condRef, batch=batch)
-
-
-
 write.table(target[,sampleName], file="samples.txt", row.names=FALSE, col.names=FALSE, quote=FALSE)
 write.table(target[,c(sampleName,varInt)], file="group.tsv", sep="\t", row.names=FALSE,col.names=FALSE, quote=FALSE)
 #write.table(target[,sampleName,], file="00_aditya_samples.txt", sep="\t", row.names=FALSE,header=FALSE, quote=FALSE)
