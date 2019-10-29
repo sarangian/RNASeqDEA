@@ -1,24 +1,25 @@
 #!/usr/bin/env Rscript
 ################################################################################
-### R script to compare several conditions with the SARTools and edgeR packages
-### Hugo Varet
-### May 16th, 2018
-### designed to be executed with SARTools 1.6.7
-### run "Rscript template_script_edgeR_CL.r --help" to get some help
+### R script to compare two different conditions with Salmon and DESeq2 packages
+### Aditya Narayan Sarangi
+### Designed to be executed with bulkRNASeqPIPE
 ################################################################################
-library(optparse) 
-library(readr)  
-library("pheatmap")
-library("RColorBrewer")
-library(regionReport)
-library(tximport)
-library(dplyr)
-library('edgeR')
-library(DESeq2)
-library(DEFormats)
 
-rm(list=ls())                                      # remove all the objects from the R session
-                                   # to run the script in command lines
+rm(list=ls())                            # remove all the objects from the R session
+suppressMessages(library(rnaseqdea))
+#library(optparse) 
+#library(readr)  
+#library("pheatmap")
+#library("RColorBrewer")
+#library(regionReport)
+#library(tximport)
+#library(dplyr)
+#library('edgeR')
+#library(DESeq2)
+#library(DEFormats)
+
+#rm(list=ls())                            # remove all the objects from the R session
+                                          # to run the script in command lines
 
 # options list with associated default value.
 option_list <- list( 
@@ -94,7 +95,7 @@ make_option(c("-n", "--normalizationMethod"),
 # now parse the command line to check which option is given and get associated values
 parser <- OptionParser(usage="usage: %prog [options]",
 					   option_list=option_list, 
-					   description="Compare two or more biological conditions in a RNA-Seq framework with edgeR.",
+					   description="Compare two biological conditions using salmon with edgeR.",
 					   epilogue="Computational Genome Biology Lab, CSIR-IICB, Kolkata 700032")
 opt <- parse_args(parser, args=commandArgs(trailingOnly=TRUE), positional_arguments=0)$options
 
@@ -156,11 +157,11 @@ if ( is.null(opt$condRef) ) {
 
 
 
-source ("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
-source ("/opt/RNASeqPIPE/tools/utility/run.edgeR_trans.r")
-source ("/opt/RNASeqPIPE/tools/utility/exportResults.edgeR.R")
-source ("/opt/RNASeqPIPE/tools/utility/summarizeResults.edgeR.r")
-source ("/opt/RNASeqPIPE/tools/utility/nDiffTotal.r")
+#source ("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
+#source ("/opt/RNASeqPIPE/tools/utility/run.edgeR_trans.r")
+#source ("/opt/RNASeqPIPE/tools/utility/exportResults.edgeR.R")
+#source ("/opt/RNASeqPIPE/tools/utility/summarizeResults.edgeR.r")
+#source ("/opt/RNASeqPIPE/tools/utility/nDiffTotal.r")
 
 
 #plots
@@ -184,7 +185,7 @@ salmon_dname <- dirname(files)
 salmon_file_names <- basename(salmon_dname)
 cat (salmon_file_names)
 names(files) <- salmon_file_names
-print (files)
+#print (files)
 
 
 
@@ -192,7 +193,7 @@ tx2gene <- read_csv(file.path(tx2geneDirectory, "tx2gene.csv"))
 txi.salmon <- tximport(files, type="salmon", tx2gene=tx2gene)
 counts <- txi.salmon$counts 
 
-head(counts) 
+#head(counts) 
 
 
 rownames_countMat <- rownames(counts)
@@ -212,8 +213,8 @@ countdata = as.data.frame(lapply(DF, as.integer))
 
 row.names(countdata) <- rownames_countMat
 
-str(countdata)
-head(countdata)
+#str(countdata)
+#head(countdata)
 
 
 out.edgeR <- run.edgeR_trans(counts=countdata, target=target, varInt=varInt, condRef=condRef,
