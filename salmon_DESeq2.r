@@ -75,7 +75,6 @@ make_option(c("-p", "--pAdjustMethod"),
 			dest="pAdjustMethod", 
 			help="p-value adjustment method: \"BH\" or \"BY\" [default: %default]"),
 
-
 make_option(c("-l", "--locfunc"),
 			default="median",
 			dest="locfunc", 
@@ -110,7 +109,6 @@ if ( is.null(opt$condRef) ) {
 
 
 # get options and arguments
-workDir <- getwd()
 projectName <- opt$projectName 
 reportName <-opt$reportName                          # name of the project
 targetFile <- opt$targetFile   
@@ -177,8 +175,6 @@ print (files)
 tx2gene <- read_csv(file.path(tx2geneDirectory, "tx2gene.csv"))
 txi.salmon <- tximport(files, type="salmon", tx2gene=tx2gene)
 countdata <- txi.salmon$counts 
-
-head(countdata) 
 
 #analysis with DESeq2
 out.DESeq2 <- run.DESeq2_trans(counts=txi.salmon, target=target, varInt=varInt, batch=batch,
