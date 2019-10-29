@@ -1,18 +1,16 @@
 #!/usr/bin/env Rscript
 ################################################################################
-### R script to compare several conditions with the SARTools and DESeq2 packages
-### Hugo Varet
-### March 20th, 2018
-### designed to be executed with SARTools 1.6.7
-### run "Rscript template_script_DESeq2_CL.r --help" to get some help
+### R script to compare two different conditions with Salmon and DESeq2 packages
+### Aditya Narayan Sarangi
+### Designed to be executed with bulkRNASeqPIPE
 ################################################################################
 
 rm(list=ls())                                        # remove all the objects from the R session
-library(optparse) 
-library(readr)  
-library(tximport)
-library("pheatmap")
-library("RColorBrewer")                                 # to run the script in command lines
+#library(optparse) 
+#library(readr)  
+#library(tximport)
+#library("pheatmap")
+#library("RColorBrewer")                                 # to run the script in command lines
 
 # options list with associated default value.
 option_list <- list( 
@@ -87,8 +85,8 @@ make_option(c("-l", "--locfunc"),
 # now parse the command line to check which option is given and get associated values
 parser <- OptionParser(usage="usage: %prog [options]",
 					   option_list=option_list, 
-					   description="Compare two or more biological conditions in a RNA-Seq framework with DESeq2.",
-					   epilogue="For comments, bug reports etc... please contact Hugo Varet <hugo.varet@pasteur.fr>")
+					   description="Compare two biological conditions -salmon and DESeq2.",
+					   epilogue="For comments, bug reports etc... please contact STLab")
 opt <- parse_args(parser, args=commandArgs(trailingOnly=TRUE), positional_arguments=0)$options
 
 
@@ -151,14 +149,14 @@ locfunc <- opt$locfunc                               # "median" (default) or "sh
 
 dir.create("tables", showWarnings = FALSE, recursive = TRUE)
 
-library(regionReport)
-library(EnhancedVolcano)
-library(tximport)
-library(DESeq2)
-library(dplyr)
-source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
-source("/opt/RNASeqPIPE/tools/utility/run.DESeq2_trans.r")
-source ("/opt/RNASeqPIPE/tools/utility/exportResults.DESeq2.R")
+#library(regionReport)
+#library(EnhancedVolcano)
+#library(tximport)
+#library(DESeq2)
+#library(dplyr)
+#source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
+#source("/opt/RNASeqPIPE/tools/utility/run.DESeq2_trans.r")
+#source ("/opt/RNASeqPIPE/tools/utility/exportResults.DESeq2.R")
 
 #plots
 					   
@@ -204,14 +202,10 @@ dds <- dds[ rowSums(counts(dds)) > 1, ]
 coldata <- colData(dds)
 intgroup<- colnames(coldata[c(2,3)])
 
-intgroup
-
 dds.rld.trans <- rlog(dds, blind=FALSE)
 
 
 sampleDists <- as.matrix(dist(t(assay(dds.rld.trans))))
-library(gplots)
-
 
 #########################################
 exportResults.DESeq2(out.DESeq2, group=group, alpha=alpha)
