@@ -6,6 +6,7 @@
 ################################################################################
 
 rm(list=ls())                                        # remove all the objects from the R session
+suppressMessages(library(rnaseqdea))
 #library(optparse) 
 #library(readr)  
 #library(tximport)
@@ -108,15 +109,12 @@ if ( is.null(opt$condRef) ) {
 }
 
 
-
-
-
 # get options and arguments
 workDir <- getwd()
 projectName <- opt$projectName 
-reportName <-opt$reportName                      # name of the project
+reportName <-opt$reportName                          # name of the project
 targetFile <- opt$targetFile   
-templateFile <- opt$templateFile                      # path to the design/target file   
+templateFile <- opt$templateFile                     # path to the design/target file   
 tx2geneDirectory <- opt$tx2geneDirectory             # path to the tx2gene Directory
 quantDir <- opt$quantDir                             # path to the directory containing salmon quantification files
 varInt <- opt$varInt                                 # factor of interest
@@ -176,16 +174,11 @@ cat (salmon_file_names)
 names(files) <- salmon_file_names
 print (files)
 
-
-
-
 tx2gene <- read_csv(file.path(tx2geneDirectory, "tx2gene.csv"))
 txi.salmon <- tximport(files, type="salmon", tx2gene=tx2gene)
 countdata <- txi.salmon$counts 
 
 head(countdata) 
-
-
 
 #analysis with DESeq2
 out.DESeq2 <- run.DESeq2_trans(counts=txi.salmon, target=target, varInt=varInt, batch=batch,
