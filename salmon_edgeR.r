@@ -80,12 +80,7 @@ make_option(c("-m", "--cpmCutoff"),
 			default=1,
 			dest="cpmCutoff", 
 			help="counts-per-million cut-off to filter low counts"),
-			
-make_option(c("-g", "--gene.selection"),
-			default="pairwise",
-			dest="gene.selection", 
-			help="selection of the features in MDSPlot [default: %default]"),
-			
+				
 make_option(c("-n", "--normalizationMethod"),
 			default="TMM",
 			dest="normalizationMethod", 
@@ -112,25 +107,18 @@ condRef <- opt$condRef                               # reference biological cond
 batch <- opt$batch                                   # blocking factor: NULL (default) or "batch" for example
 alpha <- as.numeric(opt$alpha)                       # threshold of statistical significance
 pAdjustMethod <- opt$pAdjustMethod                   # p-value adjustment method: "BH" (default) or "BY"
-gene.selection <- opt$gene.selection                 # selection of the features in MDSPlot
 normalizationMethod <- opt$normalizationMethod       # normalization method in calcNormFactors
 cpmCutoff <- opt$cpmCutoff                           # counts-per-million cut-off to filter low counts
 
-# print(paste("workDir", workDir))
- print(paste("projectName", projectName))
-# print(paste("author", author))
- print(paste("targetFile", targetFile))
-# print(paste("rawDir", rawDir))
-# print(paste("varInt", varInt))
-# print(paste("condRef", condRef))
-# print(paste("batch", batch))
-# print(paste("alpha", alpha))
-# print(paste("pAdjustMethod", pAdjustMethod))
-# print(paste("featuresToRemove", featuresToRemove))
-# print(paste("colors", colors))
-# print(paste("gene.selection", gene.selection))
-# print(paste("normalizationMethod", normalizationMethod))
- print(paste("templateFile", templateFile))
+print(paste("projectName", projectName))
+print(paste("targetFile", targetFile))
+print(paste("varInt", varInt))
+print(paste("condRef", condRef))
+print(paste("batch", batch))
+print(paste("alpha", alpha))
+print(paste("pAdjustMethod", pAdjustMethod))
+print(paste("normalizationMethod", normalizationMethod))
+print(paste("templateFile", templateFile))
 
 ################################################################################
 ###                             running script                               ###
@@ -174,8 +162,6 @@ target <- loadTargetFile(targetFile=targetFile, varInt=varInt, condRef=condRef, 
 #names(target$files)
 print (target)
 group=unique(target[,varInt])
-group
-
 
 
 files <- file.path(quantDir, 'salmon_quant', target$samples, "quant.sf")
