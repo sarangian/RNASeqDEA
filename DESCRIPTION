@@ -8,6 +8,7 @@ Maintainer: STLAb <tsucheta@gmail.com>
 Depends: R (>= 3.5.0),
 	DESeq2 (>= 1.12.0),
 	edgeR (>= 3.12.0),
+	DT,
 	ggplot2,
 	gplots,
 	EnhancedVolcano,
