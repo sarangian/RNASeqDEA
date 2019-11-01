@@ -7,11 +7,6 @@
 
 rm(list=ls())                                        # remove all the objects from the R session
 suppressMessages(library(rnaseqdea))
-#library(optparse) 
-#library(readr)  
-#library(tximport)
-#library("pheatmap")
-#library("RColorBrewer")                                 # to run the script in command lines
 
 # options list with associated default value.
 option_list <- list( 
@@ -124,7 +119,6 @@ pAdjustMethod <- opt$pAdjustMethod                   # p-value adjustment method
 locfunc <- opt$locfunc                               # "median" (default) or "shorth" to estimate the size factors
 				
 
- print(paste("workDir", workDir))
  print(paste("projectName", projectName))
  print(paste("reportName", reportName))
  print(paste("targetFile", targetFile))
@@ -145,14 +139,6 @@ locfunc <- opt$locfunc                               # "median" (default) or "sh
 
 dir.create("tables", showWarnings = FALSE, recursive = TRUE)
 
-#library(regionReport)
-#library(EnhancedVolcano)
-#library(tximport)
-#library(DESeq2)
-#library(dplyr)
-#source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
-#source("/opt/RNASeqPIPE/tools/utility/run.DESeq2_trans.r")
-#source ("/opt/RNASeqPIPE/tools/utility/exportResults.DESeq2.R")
 
 #plots
 					   
