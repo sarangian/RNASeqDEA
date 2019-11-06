@@ -76,3 +76,4 @@ VignetteBuilder: knitr, rmarkdown
 Description: Provide R tools and an environment for the statistical analysis of RNA-Seq projects: load and clean data, produce figures, with count files generated using Corset, Salmon, Kallisto or featureCounts and perform statistical analysis/testingDESeq2 or edgeR, export results and create final report.
 License: GPL-3
 RoxygenNote: 6.1.1
+SystemRequirements: GNU make
