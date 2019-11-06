@@ -5,29 +5,74 @@ Version: 0.1.0
 Date: 22.10.2019
 Author: Aditya Narayan Sarangi, Sucheta Tripathy
 Maintainer: STLAb <tsucheta@gmail.com>
-Depends: R (>= 3.5.0),
-	DESeq2 (>= 1.12.0),
-	edgeR (>= 3.12.0),
-	DT,
-	ggplot2,
-	gplots,
-	EnhancedVolcano,
-	tximport,
-	GenomicFeatures,
-	regionReport,
-	DEFormats,
-	RColorBrewer,
-	pheatmap,
-	dplyr,
-	colorspace,
-	optparse,
-	scales,
-	readr,
-	rhdf5
-Suggests: optparse
-biocViews: Software
+Imports: 
+    AnnotationDbi,
+    AnnotationFilter,
+    biomaRt,
+    Biostrings,
+    BSgenome,
+    colorspace,
+    data.table,
+    DESeq2 (>= 1.12.0),
+    DEFormats,
+    DT,
+    dplyr,
+    edgeR (>= 3.12.0),
+    EnhancedVolcano,
+    ensembldb,
+    GenomeInfoDb,
+    GenomicFeatures,
+    GenomicRanges,
+    ggplot2,
+    gplots,
+    magrittr,
+    Matrix,
+    methods,
+    optparse,
+    pheatmap,
+    plyranges,
+    R (>= 3.5.0),
+    Rcpp,
+    RcppParallel,
+    RColorBrewer,
+    regionReport,
+    readr,
+    rhdf5,
+    S4Vectors,
+    scales,
+    stats,
+    stringr,
+    tibble,
+    tximport,
+    tidyr,
+    zeallot
+LinkingTo: Rcpp, RcppArmadillo
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat,
+    ggplot2,
+    TxDb.Hsapiens.UCSC.hg38.knownGene,
+    BSgenome.Hsapiens.UCSC.hg38,
+    EnsDb.Hsapiens.v86
+biocViews:
+    RNASeq,
+    Software
+Collate: 
+    'tr2g.R'
+    'exportResults.DESeq2.R'
+    'exportResults.edgeR.R'
+    'load.TargetFile.R'
+    'nDiffTotal.r'
+    'run.DESeq2_corset.r'
+    'run.DESeq2_Salmon.r'
+    'run.DESeq2_trans.r'
+    'run.edgeR.r'
+    'run.edgeR_trans.r'
+    'summarizeResults.DESeq2.r'
+    'summarizeResults.edgeR.r'
+Encoding: UTF-8
 VignetteBuilder: knitr, rmarkdown
-Encoding: latin1
 Description: Provide R tools and an environment for the statistical analysis of RNA-Seq projects: load and clean data, produce figures, with count files generated using Corset, Salmon, Kallisto or featureCounts and perform statistical analysis/testingDESeq2 or edgeR, export results and create final report.
 License: GPL-3
 RoxygenNote: 6.1.1
