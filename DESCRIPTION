@@ -31,7 +31,6 @@ Imports:
     optparse,
     pheatmap,
     plyranges,
-    R (>= 3.5.0),
     Rcpp,
     RcppParallel,
     RColorBrewer,
