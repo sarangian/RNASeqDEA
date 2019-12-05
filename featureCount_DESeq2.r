@@ -5,12 +5,23 @@
 ### Designed to be executed with bulkRNASeqPIPE
 ################################################################################
 
-rm(list=ls())                                        # remove all the objects from the R session
+rm(list=ls()) 
 suppressMessages(library(rnaseqdea))
-#library(optparse) 
-#library(readr)  
-#library("pheatmap")
-#library("RColorBrewer")
+suppressMessages(library(DESeq2))
+suppressMessages(library(DT))
+suppressMessages(library(ggplot2))
+suppressMessages(library(gplots))
+suppressMessages(library(EnhancedVolcano))
+suppressMessages(library(GenomicFeatures))
+suppressMessages(library(regionReport))
+suppressMessages(library(DEFormats))
+suppressMessages(library(RColorBrewer))
+suppressMessages(library(pheatmap))
+suppressMessages(library(dplyr))
+suppressMessages(library(colorspace))
+suppressMessages(library(optparse))
+suppressMessages(library(scales))
+suppressMessages(library(readr))
                                  # to run the script in command lines
 
 # options list with associated default value.
