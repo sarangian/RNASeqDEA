@@ -5,14 +5,8 @@ Version: 0.1.0
 Date: 22.10.2019
 Author: Aditya Narayan Sarangi, Sucheta Tripathy
 Maintainer: STLAb <tsucheta@gmail.com>
-Imports: 
-    AnnotationDbi,
-    AnnotationFilter,
-    biomaRt,
-    Biostrings,
-    BSgenome,
+Depends: 
     colorspace,
-    data.table,
     DESeq2 (>= 1.12.0),
     DEFormats,
     DT,
@@ -47,6 +41,12 @@ Imports:
     zeallot
 LinkingTo: Rcpp, RcppArmadillo
 Suggests: 
+    AnnotationDbi,
+    AnnotationFilter,
+    biomaRt,
+    Biostrings,
+    BSgenome,
+    data.table,
     knitr,
     rmarkdown,
     testthat,
