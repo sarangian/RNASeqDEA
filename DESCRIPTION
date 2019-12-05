@@ -5,32 +5,7 @@ Version: 0.1.0
 Date: 22.10.2019
 Author: Aditya Narayan Sarangi, Sucheta Tripathy
 Maintainer: STLAb <tsucheta@gmail.com>
-Depends: 
-    colorspace,
-    DESeq2 (>= 1.12.0),
-    DEFormats,
-    DT,
-    dplyr,
-    edgeR (>= 3.12.0),
-    EnhancedVolcano,
-    GenomicFeatures,
-    GenomicRanges,
-    ggplot2,
-    gplots,
-    optparse,
-    pheatmap,
-    plyranges,
-    Rcpp,
-    RcppParallel,
-    RColorBrewer,
-    regionReport,
-    readr,
-    rhdf5,
-    S4Vectors,
-    stringr,
-    tximport,
-    tidyr
-LinkingTo: Rcpp, RcppArmadillo
+
 Suggests: 
     AnnotationDbi,
     AnnotationFilter,
@@ -57,19 +32,7 @@ Suggests:
 biocViews:
     RNASeq,
     Software
-Collate: 
-    'tr2g.R'
-    'exportResults.DESeq2.R'
-    'exportResults.edgeR.R'
-    'load.TargetFile.R'
-    'nDiffTotal.r'
-    'run.DESeq2_corset.r'
-    'run.DESeq2_Salmon.r'
-    'run.DESeq2_trans.r'
-    'run.edgeR.r'
-    'run.edgeR_trans.r'
-    'summarizeResults.DESeq2.r'
-    'summarizeResults.edgeR.r'
+
 Encoding: UTF-8
 VignetteBuilder: knitr, rmarkdown
 Description: Provide R tools and an environment for the statistical analysis of RNA-Seq projects: load and clean data, produce figures, with count files generated using Corset, Salmon, Kallisto or featureCounts and perform statistical analysis/testingDESeq2 or edgeR, export results and create final report.
