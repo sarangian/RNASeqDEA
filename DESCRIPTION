@@ -13,15 +13,10 @@ Depends:
     dplyr,
     edgeR (>= 3.12.0),
     EnhancedVolcano,
-    ensembldb,
-    GenomeInfoDb,
     GenomicFeatures,
     GenomicRanges,
     ggplot2,
     gplots,
-    magrittr,
-    Matrix,
-    methods,
     optparse,
     pheatmap,
     plyranges,
@@ -32,13 +27,9 @@ Depends:
     readr,
     rhdf5,
     S4Vectors,
-    scales,
-    stats,
     stringr,
-    tibble,
     tximport,
-    tidyr,
-    zeallot
+    tidyr
 LinkingTo: Rcpp, RcppArmadillo
 Suggests: 
     AnnotationDbi,
@@ -47,13 +38,22 @@ Suggests:
     Biostrings,
     BSgenome,
     data.table,
+    ensembldb,
+    GenomeInfoDb,
+    magrittr,
+    Matrix,
+    methods,
     knitr,
     rmarkdown,
+    scales,
+    stats,
     testthat,
+    tibble,
     ggplot2,
     TxDb.Hsapiens.UCSC.hg38.knownGene,
     BSgenome.Hsapiens.UCSC.hg38,
-    EnsDb.Hsapiens.v86
+    EnsDb.Hsapiens.v86,
+    zeallot
 biocViews:
     RNASeq,
     Software
