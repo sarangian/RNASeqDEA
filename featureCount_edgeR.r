@@ -7,17 +7,21 @@
 
 rm(list=ls())                                        # remove all the objects from the R session
 suppressMessages(library(rnaseqdea))
-#library(optparse) 
-#library(readr)  
-#library("pheatmap")
-#library("RColorBrewer")   
-#library('edgeR')
-#library(EnhancedVolcano)
-#library(regionReport)
-#library(DESeq2)
-#library(dplyr)
-#library(DEFormats)
-                              # to run the script in command lines
+suppressMessages(library(edgeR))
+suppressMessages(library(DT))
+suppressMessages(library(ggplot2))
+suppressMessages(library(gplots))
+suppressMessages(library(EnhancedVolcano))
+suppressMessages(library(GenomicFeatures))
+suppressMessages(library(regionReport))
+suppressMessages(library(DEFormats))
+suppressMessages(library(RColorBrewer))
+suppressMessages(library(pheatmap))
+suppressMessages(library(dplyr))
+suppressMessages(library(colorspace))
+suppressMessages(library(optparse))
+suppressMessages(library(scales))
+suppressMessages(library(readr))
 
 # options list with associated default value.
 option_list <- list( 
