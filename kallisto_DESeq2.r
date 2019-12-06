@@ -22,6 +22,10 @@ suppressMessages(library(colorspace))
 suppressMessages(library(optparse))
 suppressMessages(library(scales))
 suppressMessages(library(readr)) 
+suppressMessages(library(rhdf5))
+suppressMessages(library(tximport))
+
+
 # to run the script in command lines
 
 # options list with associated default value.
@@ -164,10 +168,7 @@ locfunc <- opt$locfunc                               # "median" (default) or "sh
 #dir.create(imageFolder, showWarnings = FALSE, recursive = TRUE)
 dir.create("tables", showWarnings = FALSE, recursive = TRUE)
 
-#library(regionReport)
-#library(tximport)
-#library(DESeq2)
-#library(dplyr)
+
 #source("/opt/RNASeqPIPE/tools/utility/load.TargetFile.R")
 #source("/opt/RNASeqPIPE/tools/utility/run.DESeq2_trans.r")
 #source("/opt/RNASeqPIPE/tools/utility/exportResults.DESeq2.R")
@@ -232,8 +233,6 @@ dds.rld.trans <- rlog(dds, blind=FALSE)
 
 
 sampleDists <- as.matrix(dist(t(assay(dds.rld.trans))))
-library(gplots)
-
 
 ####################################################################################
 exportResults.DESeq2(out.DESeq2, group=unique(target[,varInt]), alpha=alpha)
