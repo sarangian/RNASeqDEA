@@ -22,11 +22,7 @@ suppressMessages(library(colorspace))
 suppressMessages(library(optparse))
 suppressMessages(library(scales))
 suppressMessages(library(readr))
-suppressMessages(library(rhdf5))
-#library(optparse) 
-#library(readr)  
-#library("pheatmap")
-#library("RColorBrewer")                                 # to run the script in command lines
+# to run the script in command lines
 
 # options list with associated default value.
 option_list <- list( 
