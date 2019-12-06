@@ -6,7 +6,6 @@
 ################################################################################
 
 rm(list=ls())                                        # remove all the objects from the R session
-rm(list=ls())                      # remove all the objects from the R session
 suppressMessages(library(rnaseqdea))
 suppressMessages(library(DESeq2))
 suppressMessages(library(DT))
