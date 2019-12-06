@@ -5,6 +5,8 @@
 ### Designed to be executed with bulkRNASeqPIPE
 ################################################################################
 suppressMessages(library(rnaseqdea))
+suppressMessages(library(rhdf5))
+suppressMessages(library(tximport))
 #library(optparse) 
 #library(readr)  
 #library("pheatmap")
